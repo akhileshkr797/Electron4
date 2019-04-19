@@ -1,0 +1,19 @@
+{
+    "name": "electron4",
+    "version": "1.0.0",
+    "description": "sample WebContents Event",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/akhileshkr797/Electron4.git"
+    },
+    "author": "akhilesh",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/akhileshkr797/Electron4/issues"
+    },
+    "homepage": "https://github.com/akhileshkr797/Electron4#readme"
+}
