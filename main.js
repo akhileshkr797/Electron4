@@ -5,35 +5,32 @@ const url = require('url')
 
 let mainWindow
 
-function createWindow() {
-    mainWindow = new BrowserWindow({
-        show: false,
-        width: 1300,
-        height: 800,
-        title: 'mainWindow',
-        backgroundColor: '#fce'
-    })
+function createWindow(fileStr, options) {
+    let win = new BrowserWindow(options)
 
-    mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
+    win.loadURL(url.format({
+        pathname: path.join(__dirname, fileStr),
         protocol: 'file:',
         slashes: true
     }))
 
-    mainWindow.once('ready-to-show', () => {
-        mainWindow.show()
+    win.once('ready-to-show', () => {
+        win.show()
     })
 
-    mainWindow.on('close', function() {
-        mainWindow = null
+    win.on('close', function() {
+        win = null
     })
 
-    //WEB CONTENTS EVENTS
-    mainWindow.webContents.on('did-start-loading', event => {
-        console.log('did-start-loading', event.sender.webcontents.browserWindowOptions.title)
-    })
+    return win
 }
 
-app.on('ready', () => {
-    createWindow()
+app.on('ready', event => {
+    mainWindow = createWindow('index.html', {
+        show: false,
+        width: 1300,
+        height: 800,
+        title: 'mainWiandow',
+        backgroundColor: '#ece'
+    })
 })
