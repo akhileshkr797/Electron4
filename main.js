@@ -27,6 +27,11 @@ function createWindow() {
     mainWindow.on('close', function() {
         mainWindow = null
     })
+
+    //WEB CONTENTS EVENTS
+    mainWindow.webContents.on('did-start-loading', event => {
+        console.log('did-start-loading', event.sender.webcontents.browserWindowOptions.title)
+    })
 }
 
 app.on('ready', () => {
